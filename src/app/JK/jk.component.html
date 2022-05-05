@@ -1,0 +1,72 @@
+<!-- <h1> Our First Component - - - {{title}} - {{ 'Hi'}} - {{ 5*2}} </h1>
+
+<input type="text" name="username"  (input) = "updateStatus() "/> 
+<input type="text" name="username"  (input)="updateTitlehandler($event)" /> 
+
+<p>{{title}}</p>
+
+<hr/>
+<input type="text" name="username"  [(ngModel)]="title" /> 
+
+<p>{{title}}</p>
+
+<button type="submit" class="btn btn-primary" [disabled]="Status" (click)="aaa()">Submit</button>
+
+
+<button type="submit" class="btn btn-primary" (click)="aaa()">Update Status</button>
+
+<div *ngIf="sampletext === 'Pending' ; else titleView">
+    <h1 [innerText]="title"></h1>
+</div>
+
+<ng-template #titleView >
+    <h1>You Dont have a permission to see the content</h1>
+</ng-template> -->
+
+<!-- <div *ngIf="Status">
+    <h1>You Dont have a permission to see the content</h1>
+</div> -->
+
+<!-- <div class="alert alert-success" role="alert">...</div>
+<div class="alert alert-info" role="alert">...</div>
+<div class="alert alert-warning" role="alert">...</div>
+<div class="alert alert-danger" role="alert">...</div> -->
+
+<!-- <h1 [ngStyle]="{backgroundColor: getColor()}"> My Status - {{sampletext}} </h1> -->
+
+<!-- <h1  class='alert' [ngClass]="{'alert-success' : sampletext === 'Approved'}"> My Status - {{sampletext}} </h1> -->
+
+  <div class="container">
+      <div class="row">
+          <div class="col-md-12">
+            <h1  [ngClass]="{'green' : sampletext === 'Approved','red' : sampletext !== 'Approved'}"> My Status - {{sampletext}} </h1>
+
+
+            <button type="submit" class="btn btn-primary" (click)="aaa()">Update Status</button><br/><br/>
+            
+            <!-- <ul>
+                <li *ngFor="let item of items">{{item.name}}</li> 
+            </ul> -->
+            
+            <ul class="list-group">
+                <li class="list-group-item" *ngFor="let item of items ; let i = index">{{i+1}} - {{item.name}} - 
+                    <span class="label" [ngClass]="{'label-success' : item.sampletext === 'Approved','label-danger' : item.sampletext !== 'Approved'}">{{item.sampletext}}</span></li>
+              </ul>
+          </div>
+      </div>
+  </div>
+
+  <!-- <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of items">
+        <td >John</td>
+      </tr>
+    </tbody>
+  </table> -->
