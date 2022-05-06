@@ -1,1 +1,8 @@
-<app-jk-jk1></app-jk-jk1>
+<div class="container">
+  <app-header [titleName]="title" (updateTitleChild)="updateTitle($event)"></app-header>
+
+  <!-- <h1 class="center" (click)="updateTitle()">{{title}}</h1> -->
+  <app-jk-jk1></app-jk-jk1>
+
+  <app-footer></app-footer>
+</div>

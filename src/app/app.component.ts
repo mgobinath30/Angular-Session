@@ -8,5 +8,11 @@ import { Component } from '@angular/core';
 
 
 export class AppComponent {
-  title = 'JK1';
+  title = 'JK Tech 1';
+
+  updateTitle(title:any) {
+    debugger;
+    this.title = title;
+  }
+
 }
