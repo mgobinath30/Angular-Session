@@ -8,11 +8,17 @@ import { Component } from '@angular/core';
 
 
 export class AppComponent {
-  title = 'JK Tech 1';
+  title = 'JK Tech 123';
+
+  userStatus = 'user';
 
   updateTitle(title:any) {
     debugger;
     this.title = title;
+  }
+
+  updatHandlr(value:any) {
+    this.userStatus = value;
   }
 
 }

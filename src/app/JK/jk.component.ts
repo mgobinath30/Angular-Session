@@ -12,9 +12,11 @@ import { Component } from "@angular/core";
 
 export class JkComponent {
 
-  Status:boolean = true;
+  Status:boolean = false;
 
-  sampletext: string = 'Pending';
+  sampletext: string = 'pending';
+
+  searchText: string = '';
 
   items = [{
     name:'One',
@@ -48,6 +50,11 @@ export class JkComponent {
     debugger;
     console.log(response.target.value);
     this.title = response.target.value;
+  }
+
+  statusHandler(value:any) {
+    debugger;
+    console.log(value);
   }
   
 }

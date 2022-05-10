@@ -8,6 +8,9 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   @Input() titleName:any = '';
+
+  @Input() userType:any = '';
+
   @Output() updateTitleChild = new EventEmitter<string>();
 
   constructor() { }

@@ -11,10 +11,11 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { NewServiceService } from './new-service.service';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { UserFilterPipe } from './user-filter.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent , JkComponent, HeroDetailComponent, HeaderComponent, FooterComponent
+    AppComponent , JkComponent, HeroDetailComponent, HeaderComponent, FooterComponent, UserFilterPipe
   ],
   imports: [
     BrowserModule,

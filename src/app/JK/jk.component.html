@@ -38,7 +38,11 @@
 
       <div class="row">
           <div class="col-md-12">
-            <h1  [ngClass]="{'green' : sampletext === 'Approved','red' : sampletext !== 'Approved'}"> My Status - {{sampletext}} </h1>
+            <!-- <h1  [ngClass]="{'green' : sampletext === 'Approved','red' : sampletext !== 'Approved'}"> My Status - {{sampletext | uppercase}} -
+               {{'Tue May 10 2022 09:24:43 GMT+0530 (India Standard Time)' | date:'fullDate' | uppercase}} - <br/> 
+               {{'Tue May 10 2022 09:24:43 GMT+0530 (India Standard Time)' | date | uppercase}} </h1> -->
+
+               <!-- <h1>{{'12' |  userFilter:'INR' }}</h1> -->
 
 
             <button type="submit" class="btn btn-primary" (click)="aaa()">Update Status</button><br/><br/>
@@ -46,15 +50,30 @@
             <!-- <ul>
                 <li *ngFor="let item of items">{{item.name}}</li> 
             </ul> -->
+
+            <div class="row">
+              <div class="col-md-4">
+                <input type="text" class="form-control" [(ngModel)] = "searchText"  placeholder="Search your Data"/>
+              </div>
+            </div><br/><br/>
+           
+            <ul class="list">
+              <li  *ngFor="let item of items">
+                <button class="btn btn-primary" (click)="statusHandler(item.sampletext)">{{item.sampletext}}</button>
+              </li>
+            </ul>
             
             <ul class="list-group">
-                <li class="list-group-item" *ngFor="let item of items ; let i = index">{{i+1}} - {{item.name}} - 
+                <li class="list-group-item" *ngFor="let item of items | 
+                userFilter:searchText"> {{item.name}} - 
                     <span class="label" [ngClass]="{'label-success' : item.sampletext === 'Approved','label-danger' : item.sampletext !== 'Approved'}">{{item.sampletext}}</span></li>
               </ul>
           </div>
       </div>
 
-
+<div *ngIf="Status">
+    <h1>You Dont have a permission to see the content</h1>
+</div> 
   <!-- <table class="table table-bordered">
     <thead>
       <tr>

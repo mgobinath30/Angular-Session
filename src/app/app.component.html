@@ -1,8 +1,11 @@
 <div class="container">
-  <app-header [titleName]="title" (updateTitleChild)="updateTitle($event)"></app-header>
+  <app-header [userType]="userStatus" [titleName]="title" (updateTitleChild)="updateTitle($event)"></app-header>
 
   <!-- <h1 class="center" (click)="updateTitle()">{{title}}</h1> -->
   <app-jk-jk1></app-jk-jk1>
 
   <app-footer></app-footer>
 </div>
+
+<button (click)="updatHandlr('user')">USer </button>
+<button (click)="updatHandlr('admin')">Admin </button>
