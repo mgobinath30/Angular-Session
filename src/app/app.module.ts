@@ -8,7 +8,8 @@ import { AppComponent } from './app.component';
 import { JkComponent } from './JK/jk.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 
-import { NewServiceService } from './new-service.service';
+// import { NewServiceService } from './new-service.service';
+import { UserServiceService } from './user-service.service';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { UserFilterPipe } from './user-filter.pipe';
@@ -22,7 +23,7 @@ import { UserFilterPipe } from './user-filter.pipe';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [NewServiceService],
+  providers: [UserServiceService],
   bootstrap: [AppComponent]
 })
 
