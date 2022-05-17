@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
 
   companyname : string = '';
 
-  constructor(private user:UserServiceService) { }
+  constructor(public user:UserServiceService) { }
 
   ngOnInit(): void {
     this.companyname = this.user.name1;
@@ -31,6 +31,7 @@ export class HeaderComponent implements OnInit {
 
   updateTitle1(value: string) {
     this.user.updateName(value);
+    console.log(this.user.name1);
   }
 
   // updateTitle() {

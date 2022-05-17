@@ -1,3 +1,9 @@
+<input type="text" required [(ngModel)]="leavetype" />
+<input type="number" required [(ngModel)]="leaveDays" />
+
+
+<button (click)="getArticlesHandler()">Apply Leaves</button>
+
 <!-- <h1> Our First Component - - - {{title}} - {{ 'Hi'}} - {{ 5*2}} </h1>
 
 <input type="text" name="username"  (input) = "updateStatus() "/> 
@@ -64,9 +70,14 @@
             </ul>
             
             <ul class="list-group">
-                <li class="list-group-item" *ngFor="let item of items | 
-                userFilter:searchText"> {{item.name}} - 
-                    <span class="label" [ngClass]="{'label-success' : item.sampletext === 'Approved','label-danger' : item.sampletext !== 'Approved'}">{{item.sampletext}}</span></li>
+                <!-- <li class="list-group-item" *ngFor="let item of items | 
+                userFilter:searchText" (click) = "modelCOntent(item)"> {{item.name}} - 
+                    <span class="label" 
+
+                    [ngClass]="{'label-success' : item.sampletext === 'Approved','label-danger' : item.sampletext !== 'Approved'}">
+                    {{item.sampletext}}</span></li> -->
+
+                    <li *ngFor="let item of items" (click) = "modelCOntent(item)"> {{item.name}}</li>
               </ul>
           </div>
       </div>
@@ -74,6 +85,8 @@
 <div *ngIf="Status">
     <h1>You Dont have a permission to see the content</h1>
 </div> 
+
+<p *ngIf="modelDataStatus">{{modelData.name}}</p>
   <!-- <table class="table table-bordered">
     <thead>
       <tr>
@@ -88,3 +101,15 @@
       </tr>
     </tbody>
   </table> -->
+  <div class="loader" *ngIf="articles.length === 0"></div>
+
+  <!-- <ul class="list-group">
+    <li class="list-group-item" *ngFor="let article of articles">{{article.title}}</li>
+  </ul> -->
+
+  <!-- <div *ngFor="let article of articles;let i =index">
+  <div class="panel panel-primary" *ngIf="i < 5">
+    <div class="panel-heading">{{article.title}}</div>
+    <div class="panel-body">{{article.body}}</div>
+  </div>
+  </div> -->
