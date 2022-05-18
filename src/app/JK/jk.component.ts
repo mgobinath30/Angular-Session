@@ -5,6 +5,10 @@ import { Component, OnInit } from "@angular/core";
 
 import { HttpClient} from "@angular/common/http";
 
+import { map } from 'rxjs/operators';
+
+import { FirebaseServiceService} from '../firebase-service.service';
+
 @Component({
   selector:'app-jk-jk1',
   templateUrl:'./jk.component.html',
@@ -16,7 +20,7 @@ export class JkComponent implements OnInit {
   leavetype = '';
   leaveDays = 0;
 
-  constructor(private http:HttpClient) {
+  constructor(private http:HttpClient , private firabse:FirebaseServiceService) {
 
   }
 
@@ -51,16 +55,26 @@ export class JkComponent implements OnInit {
   title = 'Nice Students';
 
   getArticlesHandler() {
+    this.firabse.fetchPost().subscribe(data => console.log(data));
+    // this.firabse.fetchArticles('11',0)
+  }
 
-    this.http.post('https://jksoft-a50c9-default-rtdb.firebaseio.com/leaves.json' , {
-      name:'Sample Name',
-      type: this.leavetype,
-      days: this.leaveDays
-    }).subscribe(x => {
-      console.log(x);
-      this.leaveDays = 0;
-      this.leavetype = '';
-      // this.articles = x;
+
+  getLeaveLogs() {
+    console.log('called');
+    this.http.get('https://jktech-602dc-default-rtdb.firebaseio.com/leaves.json')
+    .pipe(map((data:any) => {
+      const leaveLogs = [];
+
+      for(let key in data) {
+        if(data.hasOwnProperty(key)){
+         leaveLogs.push(data[key])
+        }
+      }
+    }))
+    
+    .subscribe(response => {
+      console.log(response);
     });
   }
 
