@@ -3,6 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 
+import {Routes , RouterModule} from '@angular/router';
+
+const JKRoutes : Routes = [
+  {path:'',component:UserManagementComponent}, 
+  {path:'jk',component:JkComponent}, 
+  {path:'jk/:brand',component:JkComponent}, 
+  {path:'user',component:UserManagementComponent},
+];
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -14,17 +23,19 @@ import { UserServiceService } from './user-service.service';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { UserFilterPipe } from './user-filter.pipe';
+import { UserManagementComponent } from './user-management/user-management.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent , JkComponent, HeroDetailComponent, HeaderComponent, FooterComponent, UserFilterPipe
+    AppComponent , JkComponent, HeroDetailComponent, HeaderComponent, FooterComponent, UserFilterPipe, UserManagementComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(JKRoutes)
   ],
   providers: [UserServiceService],
   bootstrap: [AppComponent]

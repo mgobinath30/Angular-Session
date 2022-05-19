@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import {Router , ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +9,17 @@ import { Component } from '@angular/core';
 })
 
 
-export class AppComponent {
+export class AppComponent implements OnInit {
+
+  brand: string = '';
+
+  constructor(private router:Router , private activatedRoute:ActivatedRoute) {
+
+  }
+
+  ngOnInit(): void {
+     }
+
   title = 'JK Tech 123';
 
   userStatus = 'user';
@@ -19,6 +31,20 @@ export class AppComponent {
 
   updatHandlr(value:any) {
     this.userStatus = value;
+  }
+
+  goToUserModule(type:string) {
+    debugger;
+    this.brand = this.activatedRoute.snapshot.params['brand'];
+    type === 'user' ? this.router.navigate(['/user']) : this.router.navigate(['/jk']);
+    // if(type === 'user') {
+    //   console.log('called');
+    //   this.router.navigate(['/user'])
+    // } else {
+    //   this.router.navigate(['/jk'])
+
+    // }
+
   }
 
 }

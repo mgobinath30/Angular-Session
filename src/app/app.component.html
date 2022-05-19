@@ -1,8 +1,26 @@
 <div class="container">
   <app-header [userType]="userStatus" [titleName]="title" (updateTitleChild)="updateTitle($event)"></app-header>
 
+  <!-- <ul>
+    <li><a href="/jk">JK</a></li>
+    <li><a href="/user">User</a></li>
+  </ul> -->
+
+  <ul>
+    <li><a routerLink="/jk/samsung" routerLinkActive="highlight">JK</a></li>
+    <li><a routerLink="/user" routerLinkActive="highlight" class="highlight" [routerLinkActiveOptions]="{exact:true}">User</a></li>
+  </ul>
+
+  <h1>User Want - {{brand}} brand</h1>
+  <button (click)="goToUserModule('jk')">Go to User Module</button>
+  
+  <!-- [routerLinkActiveOptions]="{exact:true}" -->
   <!-- <h1 class="center" (click)="updateTitle()">{{title}}</h1> -->
-  <app-jk-jk1></app-jk-jk1>
+  <!-- <app-user-management></app-user-management>
+  
+  <app-jk-jk1></app-jk-jk1> -->
+
+  <router-outlet></router-outlet>
 
   <app-footer></app-footer>
 </div>
