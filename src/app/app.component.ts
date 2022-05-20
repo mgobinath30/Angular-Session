@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import {Router , ActivatedRoute} from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -11,13 +11,18 @@ import {Router , ActivatedRoute} from '@angular/router';
 
 export class AppComponent implements OnInit {
 
-  brand: string = '';
+  public brand: any;
 
-  constructor(private router:Router , private activatedRoute:ActivatedRoute) {
+  constructor(private route: ActivatedRoute) {
 
   }
 
   ngOnInit(): void {
+    // this.brand = this.activatedRoute.snapshot.params['id'];
+
+    this.route.paramMap.subscribe(params => {
+      console.log(params)
+})
      }
 
   title = 'JK Tech 123';
@@ -34,9 +39,7 @@ export class AppComponent implements OnInit {
   }
 
   goToUserModule(type:string) {
-    debugger;
-    this.brand = this.activatedRoute.snapshot.params['brand'];
-    type === 'user' ? this.router.navigate(['/user']) : this.router.navigate(['/jk']);
+    // type === 'user' ? this.router.navigate(['/user']) : this.router.navigate(['/jk']);
     // if(type === 'user') {
     //   console.log('called');
     //   this.router.navigate(['/user'])

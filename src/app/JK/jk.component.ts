@@ -1,13 +1,16 @@
 // Write logic - Done
 // create unique name of this component logic
 
-import { Component, OnInit } from "@angular/core";
+import { Component, OnDestroy, OnInit  } from "@angular/core";
 
 import { HttpClient} from "@angular/common/http";
 
 import { map } from 'rxjs/operators';
 
 import { FirebaseServiceService} from '../firebase-service.service';
+import { Router , ActivatedRoute ,Params } from '@angular/router';
+
+import { Subscription } from "rxjs";
 
 @Component({
   selector:'app-jk-jk1',
@@ -15,17 +18,48 @@ import { FirebaseServiceService} from '../firebase-service.service';
   styleUrls:['./jk.component.css']  
 })
 
-export class JkComponent implements OnInit {
+export class JkComponent implements OnInit , OnDestroy {
 
   leavetype = '';
   leaveDays = 0;
 
-  constructor(private http:HttpClient , private firabse:FirebaseServiceService) {
+  brand : any;
+
+  paramsSubscripe : any;
+
+  constructor(private http:HttpClient , private firabse:FirebaseServiceService,private route: ActivatedRoute , private router: Router ) {
 
   }
 
   ngOnInit(): void {
+    console.log('ngOnInit');
+
+    this.brand = this.route.snapshot.params['id'];
+
+    console.log(this.route.snapshot.queryParams['price'])
+  
+    console.log(this.route.snapshot.fragment)
+
+    this.paramsSubscripe = this.route.params.subscribe(
+      (Params: Params) => {
+        this.brand = Params['id'];
+      }
+    )
+    console.log(this.brand);
     // this.getArticlesHandler();
+  }
+
+  goTo() {
+    console.log('called');
+    this.router.navigate(['/jk','samsung'],{
+      queryParams: {price:'20K'},
+      fragment:'loaded'
+    }
+    )
+  }
+  ngOnDestroy(): void {
+    console.log('ngOnDestroy');
+    this.paramsSubscripe.unSubscribe();
   }
 
   articles : any = [];

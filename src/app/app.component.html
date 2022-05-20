@@ -11,7 +11,16 @@
     <li><a routerLink="/user" routerLinkActive="highlight" class="highlight" [routerLinkActiveOptions]="{exact:true}">User</a></li>
   </ul>
 
-  <h1>User Want - {{brand}} brand</h1>
+  <ul class="list-item">
+    <!-- <li><a routerLink="/jk/samsung">Samsung</a></li> -->
+    <li><a [routerLink]="['/jk','samsung']">Samsung</a></li>
+    <li><a routerLink="/jk/Bosch">Bosch</a></li>
+    <li><a routerLink="/jk/poco">Poco</a></li>
+    <li><a routerLink="/jk/Oneplus">Oneplus</a></li>
+  </ul>
+
+  
+
   <button (click)="goToUserModule('jk')">Go to User Module</button>
   
   <!-- [routerLinkActiveOptions]="{exact:true}" -->

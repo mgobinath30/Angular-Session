@@ -1,7 +1,9 @@
+
+  <h1>User Want - {{brand}} brand</h1>
 <input type="text" required [(ngModel)]="leavetype" />
 <input type="number" required [(ngModel)]="leaveDays" />
 
-
+<button (click)="goTo()">Go To</button>
 <button (click)="getArticlesHandler()">Apply Leaves</button>
 
 <button (click)="getLeaveLogs()">Diaplay All Leaves</button>
@@ -79,7 +81,7 @@
                     [ngClass]="{'label-success' : item.sampletext === 'Approved','label-danger' : item.sampletext !== 'Approved'}">
                     {{item.sampletext}}</span></li> -->
 
-                    <li *ngFor="let item of items" (click) = "modelCOntent(item)"> {{item.name}}</li>
+                    <li *ngFor="let item of items" (click) = "modelCOntent(item)"><a [routerLink]="['/jk',item.name]"> {{item.name}}</a></li>
               </ul>
           </div>
       </div>

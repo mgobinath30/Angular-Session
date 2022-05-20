@@ -7,9 +7,9 @@ import {Routes , RouterModule} from '@angular/router';
 
 const JKRoutes : Routes = [
   {path:'',component:UserManagementComponent}, 
-  {path:'jk',component:JkComponent}, 
-  {path:'jk/:brand',component:JkComponent}, 
+  {path:'jk/:id',component:JkComponent}, 
   {path:'user',component:UserManagementComponent},
+  {path:'**',component:NotFoundComponent},
 ];
 
 import { AppRoutingModule } from './app-routing.module';
@@ -24,11 +24,12 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { UserFilterPipe } from './user-filter.pipe';
 import { UserManagementComponent } from './user-management/user-management.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent , JkComponent, HeroDetailComponent, HeaderComponent, FooterComponent, UserFilterPipe, UserManagementComponent
+    AppComponent , JkComponent, HeroDetailComponent, HeaderComponent, FooterComponent, UserFilterPipe, UserManagementComponent, NotFoundComponent
   ],
   imports: [
     BrowserModule,
