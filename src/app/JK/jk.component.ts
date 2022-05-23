@@ -59,7 +59,7 @@ export class JkComponent implements OnInit , OnDestroy {
   }
   ngOnDestroy(): void {
     console.log('ngOnDestroy');
-    this.paramsSubscripe.unSubscribe();
+    // this.paramsSubscripe.unSubscribe();
   }
 
   articles : any = [];
